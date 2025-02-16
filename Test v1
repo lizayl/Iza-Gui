@@ -1,0 +1,4003 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/lizayl/Iza-Gui/refs/heads/main/Gui'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Admin",
+	LoadingTitle = "Blabla roh et puis ferme la ",
+	LoadingSubtitle = "Ratio",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "Reborn Goofy scirpt"
+	},
+	Discord = {
+		Enabled = true,
+		Invite = "m4jrkcVyxZ", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+		RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+	},
+	KeySystem = false, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Login",
+		Subtitle = ")=<",
+		Note = "Vasi connecte toi vasy vasy on l'entend moins ta grande gueule",
+		FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = {"PX-253789"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+	}
+})
+
+local MainTab = Window:CreateTab("Admin", 4483362458) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+	Title = "Welcome aboard, captain.",
+	Content = "K to hide menu lil chinga",                                                                                               
+	Duration = 5,
+	Image = 4483362458,
+	Actions = { -- Notification Buttons
+		Ignore = {
+			Name = "Azeee!",
+			Callback = function()
+				print("haha yes")
+			end
+		},
+	},
+})
+
+local Button = MainTab:CreateButton({
+	Name = "FreeCam",
+	Callback = function()
+		if game.Players.LocalPlayer.Character.Freecam.Enabled == false then
+			game.Players.LocalPlayer.Character.Freecam.Enabled = true
+
+		end
+
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Marcher sur les limite de map",
+	Callback = function()
+		for i,v in game:GetService("ReplicatedStorage"):FindFirstChild("Districts"):GetChildren() do
+			if v:isA("Folder") then
+				if v:GetAttribute("OffLimits") == true then
+					v:SetAttribute("OffLimits", false)
+				end
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Give Les Premium Gamepasses",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrDTFolder = game.ReplicatedStorage.PlayerData:FindFirstChild(plrName)
+		local premium = PlrDTFolder:FindFirstChild("Premium")
+
+		for i, v in premium:GetChildren() do
+			local IR = v:FindFirstChild("InfiniteRespawn")
+			local RD = v:FindFirstChild("Radar")
+			local FT = v:FindFirstChild("FastTravel")
+
+			if IR then
+				IR.Value = true
+			end;
+
+			if RD then
+				RD.Value = true
+			end;
+
+			if FT then
+				FT.Value = true
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainTab = Window:CreateTab("Gear", 95291509366536) -- Title, Image
+
+local MainSection = MainTab:CreateSection("Grappler")
+
+local Button = MainTab:CreateButton({
+	Name = "Base Grappler",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Grappler" then
+				v:SetAttribute("Level",0)
+				v:SetAttribute("Tree", 0)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Yank Grappler")
+
+local Button = MainTab:CreateButton({
+	Name = "Yank Grappler lv 1 :I",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Grappler" then
+				v:SetAttribute("Level", 1)
+				v:SetAttribute("Tree", 1)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Yank Grappler lv 2 :o",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Grappler" then
+				v:SetAttribute("Level", 2)
+				v:SetAttribute("Tree", 1)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Yank Grappler lv 3 <:O",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Grappler" then
+				v:SetAttribute("Level", 3)
+				v:SetAttribute("Tree", 1)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Swing Grappler")
+
+local Button = MainTab:CreateButton({
+	Name = "Swing Grappler lv 1",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Grappler" then
+				v:SetAttribute("Level", 1)
+				v:SetAttribute("Tree", 2)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Swing Grappler lv 2",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Grappler" then
+				v:SetAttribute("Level", 2)
+				v:SetAttribute("Tree", 2)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Swing Grappler lv 3",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Grappler" then
+				v:SetAttribute("Level", 3)
+				v:SetAttribute("Tree", 2)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Glove")
+
+local Button = MainTab:CreateButton({
+	Name = "Base Glove",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Glove" then
+				v:SetAttribute("Level",0)
+				v:SetAttribute("Tree", 0)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Drifter Glove")
+
+local Button = MainTab:CreateButton({
+	Name = "Drifter lv 1",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Glove" then
+				v:SetAttribute("Level", 1)
+				v:SetAttribute("Tree", 2)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Drifter lv 2",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Glove" then
+				v:SetAttribute("Level", 2)
+				v:SetAttribute("Tree", 2)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Climber Glove")
+
+local Button = MainTab:CreateButton({
+	Name = "Climber lv 1",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Glove" then
+				v:SetAttribute("Level", 1)
+				v:SetAttribute("Tree", 1)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Climber lv 2",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "Glove" then
+				v:SetAttribute("Level", 2)
+				v:SetAttribute("Tree", 1)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Zipline Hook")
+
+local Button = MainTab:CreateButton({
+	Name = "Base Zipline Hook",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "ZiplineHook" then
+				v:SetAttribute("Level", 0)
+				v:SetAttribute("Tree", 0)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Mechanized Zipline Hook")
+
+local Button = MainTab:CreateButton({
+	Name = "Mechanized Zipline Hook lv 1",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "ZiplineHook" then
+				v:SetAttribute("Level", 1)
+				v:SetAttribute("Tree", 1)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Mechanized Zipline Hook lv 2",
+	Callback = function()
+		local plrName = game.Players.LocalPlayer.Name
+		local PlrRTDFolder = game.ReplicatedStorage.PlayerRuntimeData:FindFirstChild(plrName)
+
+		for i, v in PlrRTDFolder.Inventory:GetChildren() do
+			if v:GetAttribute("Name") == "ZiplineHook" then
+				v:SetAttribute("Level", 2)
+				v:SetAttribute("Tree", 1)           
+			end
+		end
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local MainTab = Window:CreateTab("Teleports", 93412115764653) -- Title, Image
+local MainSection = MainTab:CreateSection("Downtown")
+
+local Button = MainTab:CreateButton({
+	Name = "Spawn",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3743.47974, 318.043854, -78.7720337)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+
+		-- Code
+		Teleport(Location)
+
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Apollo",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2806.08374, 908.638184, 1128.48157)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+
+		-- Code
+		Teleport(Location)
+
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Vertigo",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3588.84399, 1277.78223, -397.412933)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+
+		-- Code
+		Teleport(Location)
+
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "GL Tower",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2570.59717, 660.894714, -325.327881)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+
+		-- Code
+		Teleport(Location)
+
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Dirwik")
+
+local Button = MainTab:CreateButton({
+	Name = "PRK Tech",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1951.85693, 536.513611, -36.5253258)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+
+		-- Code
+		Teleport(Location)
+
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Artemis",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1786.06042, 1748.91895, 1670.724)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+
+		-- Code
+		Teleport(Location)
+
+	end,
+})
+
+local MainSection = MainTab:CreateSection("NPCs")
+
+local Button = MainTab:CreateButton({
+	Name = "Petra",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1679.29858, 652.152283, -1.57595384)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+
+
+		end
+
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Derek",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3104.397216796875, 409.9674987792969, 321.4864501953125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Julian",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3515.172119140625, 254.05686950683594, 82.220947265625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Mantra",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2645.8701171875, 573.28662109375, 626.5604248046875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Mike",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2978.46875, 479.0711669921875, -219.735595703125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainTab = Window:CreateTab("Transmitters", 93333716734548)
+local MainSection = MainTab:CreateSection("Downtown")
+
+local Button = MainTab:CreateButton({
+	Name = "1",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3588.7578125, 1296.8004150390625, -384.82125854492193)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "2",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2291.301513671875, 749.9000854492188, -241.1690673828125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "3",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2797.76220703125, 927.5316772460938, 1129.3724365234375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Dirwik")
+
+local Button = MainTab:CreateButton({
+	Name = "1",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1753.138916015625, 980.0789184570312, 917.0564575195312)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "2",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1514.375, 764.8596801757812, -248.7701416015625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "3",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1667.9228515625, 1785.385986328125, 1635.9173583984375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Fragment")
+
+local Button = MainTab:CreateButton({
+	Name = "1",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3923.56591796875, 1282.59619140625, 940.1091918945312)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "2",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4698.4677734375, 1278.83056640625, -583.9688110351562)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainTab = Window:CreateTab("XP Routers", 109395995934792)
+local MainSection = MainTab:CreateSection("All Routers")
+
+local Button = MainTab:CreateButton({
+	Name = "1",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2792.27880859375, 862.1785888671875, 1175.69189453125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "2",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1678.6285400390625, 1898.731689453125, 1654.2479248046875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "3",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2211.453125, 854.3488159179688, 1182.048828125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "4",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2123.58349609375, 601.302734375, 215.5087890625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "5",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1176.5958251953125, 883.2754516601562, -710.15234375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "6",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1523.795166015625, 628.64892578125, -1155.87841796875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "7",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1180.442626953125, 642.1807861328125, -764.3515625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "8",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1927.115478515625, 576.2630615234375, -1058.3990478515625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "9",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1595.5362548828125, 558.1444091796875, -829.48876953125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "10",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1138.5673828125, 796.7987060546875, -352.3174133300781)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "11",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1187.404541015625, 966.6012573242188, 486.809326171875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "12",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1208.34423828125, 876.5316162109375, -14.627716064453125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "13",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1900.5714111328125, 799.1357421875, 825.2459716796875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "14",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2076.62841796875, 423.5891418457031, -657.7642822265625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "15",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1440.63720703125, 945.0804443359375, 1204.277099609375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "16",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1122.95458984375, 754.8897705078125, 1403.39892578125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "17",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1106.3006591796875, 796.8243408203125, 1183.4541015625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "18",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1360.48974609375, 865.0319213867188, 636.4073486328125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "19",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1434.8133544921875, 801.64111328125, 1086.1103515625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "20",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2275.660888671875, 811.8715209960938, 1555.33203125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "21",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1861.3486328125, 853.634033203125, 1369.0224609375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "22",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1910.3897705078125, 808.4091796875, 1871.839599609375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "23",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1949.05908203125, 830.2564697265625, 2179.24072265625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "24",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2043.0625, 862.4779052734375, 2837.16796875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "25",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1905.448974609375, 617.1480712890625, -785.6334228515625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "26",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1262.2259521484375, 427.9959411621094, 2686.4470214843755)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "27",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1214.238525390625, 551.6258544921875, 1816.759765625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "28",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1765.488525390625, 740.3538818359375, 2497.703369140625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "29",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1305.7017822265625, 982.8106689453125, 3090.8427734375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "30",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1876.4339599609375, 567.6026000976562, -219.13916015625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "31",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1434.4874267578125, 679.5967407226562, -244.70419311523438)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "32",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1734.1756591796875, 833.9528198242188, -674.3632202148438)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "33",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1635.7794189453125, 687.9131469726562, 258.9798583984375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "34",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1943.453369140625, 794.1412963867188, 243.7567138671875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "35",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2090.09521484375, 570.5701293945312, -85.3057861328125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "36",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2891.6396484375, 585.8229370117188, -137.17864990234375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "37",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2997.379638671875, 542.903076171875, 24.383056640625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "38",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3010.25048828125, 523.8869018554688, -428.572021484375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "39",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2594.0341796875, 329.5058898925781, -510.6506347656255)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "40",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2334.902099609375, 582.0180053710938, -248.3941650390625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "41",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2476.92041015625, 488.68487548828125, -117.52920532226562)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "42",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2491.240234375, 456.8826904296875, 252.441650390625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "43",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3136.383056640625, 442.034912109375, -791.4715576171875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "44",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3967.5263671875, 468.7744445800781, -679.548828125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "45",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3861.689697265625, 593.1165771484375, -631.4476318359375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "46",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3584.25341796875, 353.571044921875, -119.829833984375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "47",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2987.614501953125, 476.5711669921875, -212.9931640625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "48",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3785.371337890625, 330.68084716796875, 388.693359375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "49",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4037.446044921875, 315.1712646484375, 348.931396484375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "50",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3172.439697265625, 600.0137939453125, 933.9620361328125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "51",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2980.6064453125, 609.5731811523438, 641.0706787109375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "52",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3240.52001953125, 454.1119384765625, -344.4844970703125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "53",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3447.0380859375, 465.5712890625, 458.734375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "54",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2460.15771484375, 610.115478515625, 711.3406982421875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "55",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2752.434326171875, 509.9784851074219, 1294.251220703125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "56",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2796.819091796875, 351.57177734375, 923.9628295898438)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "57",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2422.98388671875, 411.86785888671875, 1173.975830078125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "58",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3710.50830078125, 567.5712890625, 221.652099609375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "59",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2372.21826171875, 546.1819458007812, 1097.815185546875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "60",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3153.52734375, 544.5424194335938, 1292.433349609375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "61",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3357.91162109375, 529.5712890625, 511.59075927734375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "60",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3230.15673828125, 467.1000671386719, 93.81793212890625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "61",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3061.29296875, 514, 386.1556701660156)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "62",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2880.414306640625, 516.4903564453125, 839.0365600585938)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "63",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3009.127685546875, 574.763671875, 504.65997314453125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "64",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2648.96484375, 563.2095336914062, 617.583984375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "65",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3317.171142578125, 709.1072998046875, 1072.7138671875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "66",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3944.369140625, 909.4537963867188, 1171.228271484375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "67",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4132.9150390625, 558.7208251953125, 1084.566650390625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "68",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4343.748046875, 811.9322509765625, 925.478271484375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "69",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4191.04931640625, 917.294189453125, 783.402587890625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "70",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4227.837890625, 343.96636962890625, 374.495849609375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "71",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4582.119140625, 474.05322265625, 329.4853515625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "72",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4591.87158203125, 538.6846923828125, 930.5342407226562)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "73",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3874.939697265625, 677.8482055664062, 741.5621948242188)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "74",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3306.72412109375, 533.3834228515625, 759.32421875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "75",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3839.024169921875, 1069.0513916015625, 934.696533203125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "76",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3472.67724609375, 857.4937744140625, 913.46337890625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "77",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3991.30126953125, 562.0090942382812, 1594.2867431640625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "78",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4358.607421875, 689.66259765625, 1685.585205078125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "79",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4430.91748046875, 571.9659423828125, 1548.7012939453125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "80",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4201.41357421875, 341.5223693847656, 171.08160400390625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "81",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4336.47021484375, 600.8281860351562, -112.89857482910156)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "82",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4374.98583984375, 413.4490661621094, -24.8916015625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "83",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4563.9921875, 882.0655517578125, -194.02896118164062)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "84",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4659.0732421875, 982.6771850585938, -283.50732421875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "85",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4384.0625, 757.251708984375, -349.6572265625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "86",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4494.99267578125, 651.0084228515625, -579.332275390625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "87",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3941.679931640625, 1261.07763671875, 837.912353515625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "88",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4565.6337890625, 921.9630126953125, -797.025634765625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "89",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4469.86376953125, 575.4527587890625, -844.0516357421875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "90",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4793.880859375, 547.7321166992188, -740.4163818359375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "91",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4949.5224609375, 938.3545532226562, -939.189208984375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "92",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(5074.22119140625, 696.614990234375, -582.9857788085938)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "93",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4794.99853515625, 771.740478515625, 41.31591796875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "94",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(5040.44580078125, 636.1538696289062, -264.38043212890625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "95",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(5026.77392578125, 751.57568359375, -64.54931640625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "96",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4850.37451171875, 265.6863708496094, -269.3202209472656)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "96",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(5035.740234375, 939.6688232421875, -371.8629150390625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "97",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4438.3603515625, 932.6189575195312, 721.8026123046875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "98",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4593.921875, 1000.2671508789062, 160.245361328125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "99",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4077.13623046875, 833.3578491210938, 630.0490112304688)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "100",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4198.59375, 998.1734619140625, 882.125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "101",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3549.8349609375, 661.3524780273438, 1309.751708984375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "102",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3684.981689453125, 644.7741088867188, 1174.458984375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "103",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3578.372314453125, 150.85394287109375, 1441.7288818359375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainTab = Window:CreateTab("Time Trials", 130227788055320)
+local MainSection = MainTab:CreateSection("Downtown")
+
+local Button = MainTab:CreateButton({
+	Name = "Genesis, Plat: 19",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3399.8701171875, 95.781005859375, -226.1974334716797)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Solar, Plat: 19.5",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3156.9697265625, 407.0712890625, 285.986328125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Vestibule, Plat: 10.5 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3320.0966796875, 239.20294189453125, -550.167724609375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Riser, Plat: 10.75 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3955.95947265625, 271.0712890625, 332.89239501953125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Glass, Plat: 10.25 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3737.957275390625, 334.1266784667969, -21.276123046875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Crystal, Plat: 10.5 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3559.61572265625, 353.071044921875, -157.81787109375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Dirwik")
+
+local Button = MainTab:CreateButton({
+	Name = "Celsius, Plat: 12sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2130.6357421875, 422.9739074707031, -665.1212158203125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Martyr, Plat: 12.5",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1326.4708251953125, 519.542236328125, -1135.175537109375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Sawdust, Plat: 16.5",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2302.2646484375, 635.4703369140625, 2561.633056640625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Neon Bold, Plat: 20",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(2036.6907958984375, 373.29046630859375, 2324.779052734375)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Circulation, Plat: 14",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1829.57080078125, 430.04547119140625, -895.6082763671875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Flow, Plat: 16",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(1336.6663818359375, 520.3484497070312, -892.681884765625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Fragement")
+
+local Button = MainTab:CreateButton({
+	Name = "Grip, Plat: 17 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(3860.912353515625, 455.36126708984375, 968.2117309570312)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Umbrel, Plat: 21 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4291.40625, 524.535400390625, 1703.2178955078125)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Ascension, Plat: 12 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4399.310546875, 599.8378295898438, 483.0516662597656)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Needle, Plat: 13 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4285.333984375, 283.05438232421875, 469.2325744628906)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Faith, Plat: 15 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(5019.72705078125, 438.23431396484375, -809.2295532226562)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("Out Of Bound")
+
+local Button = MainTab:CreateButton({
+	Name = "Carbon, Plat: 12 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4947.798828125, 349.0547180175781, 675.3221435546875)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
+local Button = MainTab:CreateButton({
+	Name = "Fiber, Plat: 14 sec",
+	Callback = function()
+		-- Settings
+		local Location = CFrame.new(4125.01123046875, 560.0443725585938, 1761.4775390625)
+
+		-- Services
+		local Players = game:GetService("Players")
+
+		-- Variables
+		local LocalPlayer: Player = Players.LocalPlayer
+		local Character: Model = LocalPlayer.Character
+		local RootPart: Part = Character.HumanoidRootPart
+
+		-- Functions
+		function Teleport(Location: CFrame)
+
+			RootPart.CFrame = Location
+
+		end
+		-- Code
+		Teleport(Location)
+	end,
+})
