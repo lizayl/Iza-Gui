@@ -57,6 +57,18 @@ local Button = MainTab:CreateButton({
 })
 
 local Button = MainTab:CreateButton({
+	Name = "DebugTeleport",
+	Callback = function()
+		if game.Players.LocalPlayer.Character.DebugTeleport.Enabled == false then
+			game.Players.LocalPlayer.Character.DebugTeleport.Enabled = true
+
+		end
+
+		-- The function that takes place when the button is pressed
+	end,
+})
+
+local Button = MainTab:CreateButton({
 	Name = "Marcher sur les limite de map",
 	Callback = function()
 		for i,v in game:GetService("ReplicatedStorage"):FindFirstChild("Districts"):GetChildren() do
